@@ -41,7 +41,7 @@ export const profile = {
   name: "Sai Nitish",
   title: "AI Product Engineer",
   linkedin: "https://www.linkedin.com/in/sai-nitish",
-  email: "contact email coming soon",
+  email: "bimarisainitish@gmail.com",
   location: "Oklahoma, United States",
   intro:
     "MS Artificial Intelligence student building deployed AI products with a full-stack engineering foundation and CTO-level product leadership experience.",
