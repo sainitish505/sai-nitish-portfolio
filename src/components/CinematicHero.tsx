@@ -20,7 +20,7 @@ export function CinematicHero() {
             {profile.title}
           </p>
           <h1 className="max-w-5xl text-5xl font-semibold leading-[0.95] tracking-tight text-[#fffaf0] sm:text-7xl lg:text-8xl">
-            I build AI products on top of real full-stack and CTO experience.
+            I build AI products on top of full-stack, operational, and technology leadership experience.
           </h1>
           <p className="mt-7 max-w-3xl text-xl leading-8 text-[#ded6c8]">{profile.intro}</p>
           <p className="mt-4 max-w-3xl text-base leading-7 text-[#b8b2a7]">{profile.thesis}</p>

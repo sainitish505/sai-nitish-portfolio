@@ -11,7 +11,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
       <main>{children}</main>
       <footer className="border-t border-[#f4f0e8]/10 px-4 py-8 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 text-sm text-[#b8b2a7] sm:flex-row sm:items-center sm:justify-between">
-          <p>I build AI products with full-stack depth, leadership judgment, and real product ownership.</p>
+          <p>I build AI products, operational platforms, and full-stack systems with product ownership.</p>
           <a className="text-teal-200 hover:text-amber-200" href={profile.linkedin} target="_blank" rel="noreferrer">
             LinkedIn
           </a>

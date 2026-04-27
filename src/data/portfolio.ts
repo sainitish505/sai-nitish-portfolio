@@ -1,6 +1,7 @@
 import {
   BadgeCheck,
   Bot,
+  Boxes,
   Brain,
   BriefcaseBusiness,
   Building2,
@@ -21,7 +22,7 @@ import {
   Workflow,
 } from "lucide-react";
 
-export type ProjectCategory = "AI Products" | "Leadership Systems" | "Full-Stack Foundations" | "Early Work";
+export type ProjectCategory = "AI Products" | "Operational Platforms" | "Product Leadership Systems" | "Full-Stack Foundations" | "Teaching & Mentorship" | "Early Work";
 
 export type Project = {
   slug: string;
@@ -33,6 +34,8 @@ export type Project = {
   period: string;
   status: string;
   liveUrl?: string;
+  links?: { label: string; url: string }[];
+  visual?: "pipeline" | "ecosystem" | "operations" | "public";
   organization?: string;
   stack: string[];
   highlights: string[];
@@ -54,20 +57,20 @@ export const profile = {
   email: "bimarisainitish@gmail.com",
   location: "Oklahoma, United States",
   intro:
-    "I build AI products with the instincts of a full-stack engineer and the judgment of someone who has already led product execution as a CTO.",
+    "I build AI products, operational platforms, and full-stack systems with product ownership and technology leadership experience.",
   thesis:
-    "My path moved from frontend work to full-stack systems, then project management and CTO responsibility, and now into applied AI through my MS in Artificial Intelligence. I care about turning messy product ideas into systems people can actually use.",
+    "My path moved from frontend work to full-stack systems, then project management, Lead of Technology / CTO responsibility, operational software, and now applied AI through my MS in Artificial Intelligence. I care about turning ambiguous product needs into robust systems people can actually use.",
   positioning:
-    "Frontend Developer -> Full-Stack Developer -> Project Manager -> CTO -> MS AI Student -> AI Product Engineer",
+    "Frontend Developer -> Full-Stack Developer -> Project Manager -> Lead of Technology / CTO -> MS AI Student -> AI Product Engineer",
 };
 
 export const stats = [
   { value: "6 yrs", label: "product engineering growth" },
   { value: "10+", label: "people led and trained" },
   { value: "4+", label: "major integrations shipped" },
+  { value: "65K+", label: "inventory units managed" },
+  { value: "INR 3L+", label: "sales tracked in production" },
   { value: "~90%", label: "API performance improvement" },
-  { value: "$1M", label: "AWS startup credits extended" },
-  { value: "3", label: "public case-study tracks" },
 ];
 
 export const builderArc = [
@@ -105,11 +108,19 @@ export const builderArc = [
   },
   {
     period: "2024",
-    title: "Stepped into CTO responsibility",
-    role: "CTO, Amealio",
+    title: "Carried technology leadership responsibility",
+    role: "Lead of Technology / CTO, Amealio",
     body:
       "I led and built across Amealio's product ecosystem: customer app, merchant/admin dashboards, POS, ONDC, payments, settlements, personalization, and cloud/startup-credit conversations.",
     icon: Rocket,
+  },
+  {
+    period: "2025",
+    title: "Built a live operating platform from scratch",
+    role: "Full-stack owner, family distribution business",
+    body:
+      "I designed, built, deployed, and still maintain a sales and inventory management platform that tracks real sales, stock movement, retailers, routes, collections, and reports.",
+    icon: Boxes,
   },
   {
     period: "Now",
@@ -131,8 +142,16 @@ export const proofCategories = [
     accent: "teal",
   },
   {
-    title: "Leadership Systems",
-    subtitle: "CTO and product ownership",
+    title: "Operational Platforms",
+    subtitle: "End-to-end business software",
+    description:
+      "I build live internal systems where data integrity, workflows, roles, reporting, and production stewardship matter as much as the interface.",
+    projectSlugs: ["sales-inventory-management"],
+    accent: "emerald",
+  },
+  {
+    title: "Product Leadership Systems",
+    subtitle: "Lead of Technology / CTO ownership",
     description:
       "I have led product execution under real constraints: team growth, release planning, integrations, performance, cloud credits, and business-critical dashboards.",
     projectSlugs: ["amealio"],
@@ -153,6 +172,14 @@ export const proofCategories = [
       "Internships and freelance work shaped my speed, ownership, and ability to understand unfamiliar domains quickly.",
     projectSlugs: [],
     accent: "stone",
+  },
+  {
+    title: "Teaching & Mentorship",
+    subtitle: "Technical communication",
+    description:
+      "While pursuing my MS in AI, I tutor computer science and AI/ML topics, translating difficult concepts into practical debugging, exam preparation, and code reasoning support.",
+    projectSlugs: [],
+    accent: "violet",
   },
 ];
 
@@ -199,6 +226,8 @@ export const projects: Project[] = [
     period: "2025 - Present",
     status: "Deployed live",
     liveUrl: "https://nextjs-frontend-one-phi.vercel.app/",
+    links: [{ label: "Live product", url: "https://nextjs-frontend-one-phi.vercel.app/" }],
+    visual: "pipeline",
     stack: [
       "Next.js",
       "TypeScript",
@@ -334,16 +363,185 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "sales-inventory-management",
+    title: "Sales & Inventory Management",
+    eyebrow: "Operational Platform / Full-Stack Ownership",
+    category: "Operational Platforms",
+    summary:
+      "I built and deployed an end-to-end operating system for my family distribution business, connecting products, stock movement, retailers, sales, collections, returns, reports, roles, and production maintenance.",
+    role: "End-to-End Full-Stack Owner",
+    period: "2025",
+    status: "Live production system",
+    liveUrl: "https://distribution.bimari.org",
+    links: [
+      { label: "Live system", url: "https://distribution.bimari.org" },
+      { label: "Frontend repo", url: "https://github.com/sainitish505/bimari-distribution-fe" },
+      { label: "Backend repo", url: "https://github.com/sainitish505/bimari-distribution-be" },
+    ],
+    visual: "operations",
+    organization: "Family distribution business",
+    stack: [
+      "React 19",
+      "React Router",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Chart.js",
+      "Axios",
+      "Express 5",
+      "MySQL",
+      "TiDB-style SQL",
+      "JWT",
+      "bcrypt",
+      "Zod",
+    ],
+    highlights: [
+      "I designed, built, deployed, and still maintain the full platform from scratch.",
+      "I connected inventory, inward stock, retailer sales, payment collection, returns, route management, reports, and role-based access into one operating workflow.",
+      "I turned a family-business operational problem into production software that tracks INR 3L+ in sales and 65,000+ inventory units.",
+    ],
+    impact: [
+      "3 months from scratch to live",
+      "INR 3L+ sales tracked",
+      "65K+ inventory units managed",
+      "Live users in daily operations",
+    ],
+    context: [
+      "The business needed more than a spreadsheet. Sales, stock, retailers, collections, returns, warehouses, and reports had to connect in one dependable operational platform.",
+      "Because this system serves real users inside a family distribution business, I had to think like the engineer, product owner, operator, and production maintainer at the same time.",
+    ],
+    ownership: [
+      {
+        title: "Product and workflow design",
+        items: [
+          "Mapped the business flow from product catalog and inward stock to sales, collection, returns, and reporting.",
+          "Designed the application around real operational tasks instead of generic CRUD screens.",
+          "Built a role-aware dashboard experience for users who need fast entries and clear visibility.",
+        ],
+      },
+      {
+        title: "Full-stack engineering",
+        items: [
+          "Built the React frontend, routing, protected screens, forms, tables, charts, alerts, and operational UI components.",
+          "Built the Express backend with authentication, JWT protection, role checks, controllers, services, validation, and SQL access.",
+          "Designed and implemented the SQL data model for products, suppliers, warehouses, inventory balances, batches, stock ledger, inward receipts, sales, returns, reports, users, roles, routes, retailers, and refrigerators/assets.",
+        ],
+      },
+      {
+        title: "Deployment and stewardship",
+        items: [
+          "Deployed the system live at distribution.bimari.org and continue to maintain it.",
+          "Handled production setup, database setup, security-sensitive authentication flows, and ongoing improvements.",
+          "Use live operational feedback to refine workflows, reports, and data quality.",
+        ],
+      },
+    ],
+    modules: [
+      {
+        title: "Product catalog and inventory core",
+        detail:
+          "I built product management, warehouse-aware inventory balances, inward receipts, batch handling, stock ledger movement, and update flows so stock data can remain coherent as the business operates.",
+        tags: ["Products", "Warehouses", "Inventory balances", "Stock ledger"],
+      },
+      {
+        title: "Inward stock workflow",
+        detail:
+          "The inward flow captures supplier, warehouse, invoice, item, quantity, and damage-related data so incoming inventory becomes traceable instead of disappearing into manual notes.",
+        tags: ["Suppliers", "Inward receipts", "Batches", "Data integrity"],
+      },
+      {
+        title: "Sales and collections",
+        detail:
+          "I built sale creation, stock lookup, retailer information, payment split/collection, sale history, sale details, payment updates, and return handling around real distribution workflows.",
+        tags: ["Sales", "Payments", "Collections", "Returns"],
+      },
+      {
+        title: "Retailers, routes, and assets",
+        detail:
+          "The platform includes retailer search/creation, route assignment, profile operations, and refrigerator/asset tracking, which gives the system operational depth beyond product and sale screens.",
+        tags: ["Retailers", "Routes", "Assets", "Operations"],
+      },
+      {
+        title: "Reports and trends",
+        detail:
+          "I implemented sales reports, monthly overview, trend views, and chart-driven summaries so the business can see performance instead of only recording transactions.",
+        tags: ["Reports", "Trends", "Chart.js", "Monthly overview"],
+      },
+      {
+        title: "Auth, roles, and production control",
+        detail:
+          "I built login/register, JWT-protected routes, bcrypt password handling, role-based checks, and protected frontend routes to make the platform usable as a real internal system.",
+        tags: ["JWT", "bcrypt", "Roles", "Protected routes"],
+      },
+    ],
+    hardProblems: [
+      {
+        problem: "Operational software has to match the business, not the other way around.",
+        response:
+          "I modeled the system around product movement, retailer sales, collections, returns, routes, and reports so the platform follows the actual distribution workflow.",
+      },
+      {
+        problem: "Inventory accuracy depends on every transaction path.",
+        response:
+          "I connected inward receipts, stock balances, sale creation, returns, batches, and ledger-style movement so inventory can be reasoned about from multiple angles.",
+      },
+      {
+        problem: "A live internal tool needs production stewardship after launch.",
+        response:
+          "I deployed the system, maintain it in production, and keep improving workflows based on real operational usage.",
+      },
+    ],
+    leadership: [
+      "This project shows ownership without a large team: I carried product thinking, architecture, engineering, deployment, and maintenance end to end.",
+      "I translated business operations into software architecture, which is a different kind of leadership than managing engineers but just as important for product judgment.",
+      "Because the system is live in my family business, I am accountable for reliability, usability, and production continuity.",
+    ],
+    lessons: [
+      "The best internal tools are not small apps; they are operational systems with data integrity, role design, reporting, and maintenance responsibilities.",
+      "Building for family-business operations sharpened my ability to move from real-world ambiguity into structured software.",
+      "This project broadens my portfolio beyond Amealio by proving independent end-to-end execution in a live production environment.",
+    ],
+    deepDive: [
+      {
+        label: "Operating-system mindset",
+        detail:
+          "I designed the platform as a practical operating layer for distribution work: catalog, stock, warehouses, suppliers, sales, collections, returns, retailers, routes, assets, and reports.",
+      },
+      {
+        label: "Data integrity",
+        detail:
+          "The SQL model includes inventory balances, batches, inward receipts, stock ledger, sales, sale items, reports, users, roles, and related operational tables.",
+      },
+      {
+        label: "Production responsibility",
+        detail:
+          "I deployed the application live, maintain it, and use real usage feedback to continue improving the system.",
+      },
+      {
+        label: "Career signal",
+        detail:
+          "This project proves I can build beyond portfolio demos: live business software, real users, real stock, real sales, and real maintenance.",
+      },
+    ],
+    decisions: [
+      "I built a custom system instead of forcing the business into generic spreadsheet workflows.",
+      "I separated frontend application flow from backend controllers, services, validation, auth, and SQL persistence so the system can grow module by module.",
+      "I included reporting and trend views because operational visibility matters as much as transaction entry.",
+      "I present this project as an operational platform because the strongest proof is end-to-end business workflow ownership.",
+    ],
+  },
+  {
     slug: "amealio",
     title: "Amealio",
-    eyebrow: "CTO / Product Leadership",
-    category: "Leadership Systems",
+    eyebrow: "Lead of Technology / CTO Product Leadership",
+    category: "Product Leadership Systems",
     summary:
-      "I grew inside Envisionard from frontend developer to CTO responsibility, building and leading Amealio across customer app, merchant/admin dashboards, AI personalization, POS, payments, settlements, ONDC, and cloud/business operations.",
-    role: "CTO",
+      "I grew inside Envisionard from frontend developer to Lead of Technology / CTO responsibility, building and leading Amealio across customer app, merchant/admin dashboards, AI personalization, POS, payments, settlements, ONDC, and cloud/business operations.",
+    role: "Lead of Technology / CTO",
     period: "Aug 2024 - Dec 2024",
     status: "Production product",
     liveUrl: "https://www.amealio.com/",
+    links: [{ label: "Live product", url: "https://www.amealio.com/" }],
+    visual: "ecosystem",
     organization: "Envisionard",
     stack: [
       "React",
@@ -358,7 +556,7 @@ export const projects: Project[] = [
       "ONDC",
     ],
     highlights: [
-      "I grew through frontend developer, full-stack developer, project manager, and CTO responsibilities.",
+      "I grew through frontend developer, full-stack developer, project manager, and technology leadership responsibilities.",
       "I built and led across the end-to-end ecosystem: customer app, merchant/admin dashboards, analytics, integrations, payments, and personalization.",
       "I helped extend access to $1M AWS startup credits and MongoDB startup credits through technical/product discussions.",
     ],
@@ -369,7 +567,7 @@ export const projects: Project[] = [
       "$1M AWS credits extended",
     ],
     context: [
-      "Amealio was an early MVP when I joined Envisionard. Over time, my work moved from building interfaces into owning complex product systems and eventually CTO responsibility.",
+      "Amealio was an early MVP when I joined Envisionard. Over time, my work moved from building interfaces into owning complex product systems and eventually Lead of Technology / CTO responsibility.",
       "The product was not just a food app. It had customer discovery, restaurant operations, merchant management, admin workflows, AI personalization, POS/menu data, payments, settlements, ONDC, OAuth, analytics, and internal tools.",
     ],
     ownership: [
@@ -468,7 +666,7 @@ export const projects: Project[] = [
     lessons: [
       "Leadership is not separate from engineering; the best technical decisions often come from understanding product, team, and business pressure together.",
       "Integrations are product work, not only API work, because data quality, operations, support, and dashboards all depend on them.",
-      "My CTO experience is the bridge between my full-stack foundation and my current AI product direction.",
+      "My technology leadership experience is the bridge between my full-stack foundation and my current AI product direction.",
     ],
     deepDive: [
       {
@@ -515,6 +713,8 @@ export const projects: Project[] = [
     period: "May 2019 - Jul 2019",
     status: "Public mobile app",
     liveUrl: "https://esay.in/",
+    links: [{ label: "Live website", url: "https://esay.in/" }],
+    visual: "public",
     organization: "Arawinz",
     stack: ["Dart", "Flutter", "HTML", "CSS", "Bootstrap", "JavaScript", "jQuery", "PHP CodeIgniter", "MySQL"],
     highlights: [
@@ -628,6 +828,14 @@ export const projects: Project[] = [
 
 export const experience = [
   {
+    period: "Jan 2026 - Jul 2026",
+    title: "Tutor",
+    company: "Oklahoma Christian University",
+    detail:
+      "I support computer science and AI/ML learning through debugging help, exam preparation, code explanation, and problem-solving mentorship.",
+    icon: GraduationCap,
+  },
+  {
     period: "Dec 2024 - Present",
     title: "MS Artificial Intelligence",
     company: "Oklahoma Christian University",
@@ -636,10 +844,18 @@ export const experience = [
   },
   {
     period: "Aug 2024 - Dec 2024",
-    title: "CTO",
+    title: "Lead of Technology / CTO",
     company: "Amealio / Envisionard",
     detail: "I led and built across product architecture, integrations, dashboards, AI personalization, payments, and team growth.",
     icon: Rocket,
+  },
+  {
+    period: "2025",
+    title: "End-to-End Full-Stack Owner",
+    company: "Sales & Inventory Management",
+    detail:
+      "I built, deployed, and maintain a live family-business operations platform tracking INR 3L+ sales and 65,000+ inventory units.",
+    icon: Boxes,
   },
   {
     period: "Sep 2022 - Jul 2024",
@@ -671,11 +887,27 @@ export const experience = [
   },
 ];
 
+export const teaching = {
+  role: "Tutor",
+  organization: "Oklahoma Christian University",
+  period: "Jan 2026 - Jul 2026",
+  url: "https://www.oc.edu/academics/student-success/tutoring",
+  summary:
+    "While pursuing my MS in Artificial Intelligence, I support computer science and AI/ML learners through technical explanation, debugging, exam preparation, and problem-solving mentorship.",
+  impact: "Supported 50+ student learning interactions across programming, AI/ML, debugging, and exam preparation.",
+  topics: ["C", "C++", "Python", "JavaScript", "AI", "Machine Learning", "Data structures", "Debugging", "Exam preparation", "Code explanation"],
+};
+
 export const skills = [
   {
     title: "AI + Product",
     icon: Bot,
     items: ["AI workflows", "Chatbots", "Recommendation logic", "Agent pipelines", "Prompted systems"],
+  },
+  {
+    title: "Operational Systems",
+    icon: Boxes,
+    items: ["Inventory workflows", "Sales tracking", "Reports", "Role-based access", "Production maintenance"],
   },
   {
     title: "Frontend",

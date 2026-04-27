@@ -30,3 +30,31 @@ html {
   background: rgba(103, 232, 249, 0.28);
   color: #ffffff;
 }
+
+@media print {
+  @page {
+    margin: 0.45in;
+  }
+
+  html {
+    background: #ffffff !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+  }
+
+  header,
+  footer {
+    display: none !important;
+  }
+
+  .resume-page {
+    padding: 0 !important;
+  }
+
+  .resume-page * {
+    box-shadow: none !important;
+  }
+}

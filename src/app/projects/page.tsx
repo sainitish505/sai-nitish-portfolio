@@ -10,7 +10,7 @@ export default function ProjectsPage() {
           <SectionTitle
             eyebrow="Projects"
             title="Projects grouped by what they prove."
-            description="I do not want this page to be a flat list. Each category explains a different layer of my story: current AI products, CTO-level product systems, full-stack foundations, and early shipped work."
+            description="I do not want this page to be a flat list. Each category explains a different layer of my story: current AI products, operational platforms, technology leadership systems, full-stack foundations, teaching, and early shipped work."
           />
           <ProjectCategoryGallery />
         </div>

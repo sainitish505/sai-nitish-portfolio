@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { olderProjects, projects, proofCategories } from "@/data/portfolio";
+import { olderProjects, projects, proofCategories, teaching } from "@/data/portfolio";
 
 export function ProjectCategoryGallery() {
   return (
@@ -52,6 +52,26 @@ export function ProjectCategoryGallery() {
                       </p>
                     </div>
                   ))}
+                {category.title === "Teaching & Mentorship" && (
+                  <a
+                    href={teaching.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group rounded border border-[#f4f0e8]/10 bg-black/20 p-4 transition hover:-translate-y-1 hover:border-teal-200/40 md:col-span-2"
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-teal-200">{teaching.period}</p>
+                        <h4 className="mt-2 text-lg font-semibold text-[#fffaf0]">
+                          {teaching.role}, {teaching.organization}
+                        </h4>
+                      </div>
+                      <ArrowUpRight className="h-4 w-4 text-[#8f8676] transition group-hover:text-amber-200" />
+                    </div>
+                    <p className="mt-3 text-sm leading-6 text-[#b8b2a7]">{teaching.summary}</p>
+                    <p className="mt-3 text-sm font-semibold text-amber-200">{teaching.impact}</p>
+                  </a>
+                )}
               </div>
             </div>
           </motion.section>

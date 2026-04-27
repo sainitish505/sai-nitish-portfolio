@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowUpRight, CheckCircle2, Flame, Route, ShieldCheck } from "lucide-react";
 import { EcosystemVisual } from "@/components/EcosystemVisual";
 import { ImpactCard } from "@/components/ImpactCard";
+import { OperationsVisual } from "@/components/OperationsVisual";
 import { PipelineVisual } from "@/components/PipelineVisual";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Shell } from "@/components/Shell";
@@ -39,16 +40,21 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               </h1>
               <p className="mt-6 max-w-4xl text-xl leading-8 text-[#ded6c8]">{project.summary}</p>
               <div className="mt-8 flex flex-wrap gap-3">
-                {project.liveUrl && (
+                {(project.links ?? (project.liveUrl ? [{ label: "Open Live Project", url: project.liveUrl }] : [])).map((link, index) => (
                   <a
-                    href={project.liveUrl}
+                    key={link.url}
+                    href={link.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded bg-teal-200 px-4 py-3 text-sm font-semibold text-[#10130f] shadow-xl shadow-teal-950/20 transition hover:bg-amber-200"
+                    className={
+                      index === 0
+                        ? "inline-flex items-center gap-2 rounded bg-teal-200 px-4 py-3 text-sm font-semibold text-[#10130f] shadow-xl shadow-teal-950/20 transition hover:bg-amber-200"
+                        : "inline-flex items-center gap-2 rounded border border-[#f4f0e8]/15 px-4 py-3 text-sm font-semibold text-[#fffaf0] transition hover:bg-[#f4f0e8]/10"
+                    }
                   >
-                    Open Live Project <ArrowUpRight className="h-4 w-4" />
+                    {link.label} <ArrowUpRight className="h-4 w-4" />
                   </a>
-                )}
+                ))}
                 <span className="rounded border border-[#f4f0e8]/15 px-4 py-3 text-sm font-semibold text-[#fffaf0]">
                   {project.category}
                 </span>
@@ -113,9 +119,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             title="How the work connects"
             description="I want each project page to show the system, not only describe it."
           />
-          {project.slug === "youtube-autopilot" && <PipelineVisual />}
-          {project.slug === "amealio" && <EcosystemVisual />}
-          {project.slug === "esay" && (
+          {project.visual === "pipeline" && <PipelineVisual />}
+          {project.visual === "ecosystem" && <EcosystemVisual />}
+          {project.visual === "operations" && <OperationsVisual />}
+          {project.visual === "public" && (
             <div className="rounded border border-[#f4f0e8]/10 bg-[#f4f0e8]/[0.055] p-6">
               <h2 className="text-xl font-semibold text-[#fffaf0]">Public Product Footprint</h2>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[#b8b2a7]">
