@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Award, Download, ExternalLink } from "lucide-react";
 import { AnimatedSection } from "@/components/AnimatedSection";
@@ -10,12 +11,34 @@ import { PipelineVisual } from "@/components/PipelineVisual";
 import { ProjectCategoryGallery } from "@/components/ProjectCategoryGallery";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Shell } from "@/components/Shell";
+import { StructuredData } from "@/components/StructuredData";
 import { certifications, profile, skills, teaching } from "@/data/portfolio";
+import { createPageMetadata, defaultDescription, personJsonLd, profilePageJsonLd, websiteJsonLd } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Sai Nitish Bimari | AI Product Engineer",
+  description: defaultDescription,
+  path: "/",
+  keywords: ["official portfolio", "AI portfolio", "full-stack portfolio", "bimari.org"],
+});
 
 export default function Home() {
   return (
     <Shell>
+      <StructuredData data={[personJsonLd(), websiteJsonLd(), profilePageJsonLd()]} />
       <CinematicHero />
+
+      <section className="px-4 pt-6 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <p className="rounded border border-teal-200/20 bg-teal-200/[0.055] px-4 py-3 text-sm leading-6 text-[#ded6c8]">
+            Sai Nitish Bimari is an AI Product Engineer building AI products, full-stack systems, and operational platforms at{" "}
+            <a href="https://bimari.org" className="font-semibold text-teal-200 hover:text-amber-200">
+              bimari.org
+            </a>
+            .
+          </p>
+        </div>
+      </section>
 
       <AnimatedSection className="px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">

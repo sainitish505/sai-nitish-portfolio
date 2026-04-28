@@ -1,9 +1,21 @@
+import type { Metadata } from "next";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Shell } from "@/components/Shell";
+import { StructuredData } from "@/components/StructuredData";
+import { createPageMetadata, personJsonLd } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "About Sai Nitish Bimari | AI Product Engineer",
+  description:
+    "About Sai Nitish Bimari, an AI Product Engineer and MS Artificial Intelligence student with experience in full-stack systems, operational platforms, Amealio technology leadership, and tutoring.",
+  path: "/about",
+  keywords: ["about Sai Nitish Bimari", "MS Artificial Intelligence", "technology leadership", "computer science tutor"],
+});
 
 export default function AboutPage() {
   return (
     <Shell>
+      <StructuredData data={personJsonLd()} />
       <section className="px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl">
           <SectionTitle

@@ -1,8 +1,19 @@
+import type { Metadata } from "next";
 import { ArrowUpRight, BadgeCheck, BriefcaseBusiness, GraduationCap, Mail, MapPin } from "lucide-react";
 import { PrintButton } from "@/components/PrintButton";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Shell } from "@/components/Shell";
+import { StructuredData } from "@/components/StructuredData";
 import { certifications, experience, profile, projects, skills, stats, teaching } from "@/data/portfolio";
+import { createPageMetadata, personJsonLd } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Resume | Sai Nitish Bimari AI Product Engineer",
+  description:
+    "Resume of Sai Nitish Bimari, AI Product Engineer with full-stack development, operational platforms, technology leadership, Amealio, YouTube Autopilot, Sales & Inventory Management, and MS AI experience.",
+  path: "/resume",
+  keywords: ["Sai Nitish Bimari resume", "AI Product Engineer resume", "full-stack developer resume", "technology lead resume"],
+});
 
 const selectedProjects = projects.filter((project) =>
   ["youtube-autopilot", "sales-inventory-management", "amealio"].includes(project.slug),
@@ -11,6 +22,7 @@ const selectedProjects = projects.filter((project) =>
 export default function ResumePage() {
   return (
     <Shell>
+      <StructuredData data={personJsonLd()} />
       <section className="resume-page px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-6xl">
           <div className="rounded border border-[#f4f0e8]/10 bg-[#f4f0e8]/[0.055] p-6 shadow-2xl shadow-black/15 sm:p-8 print:border-0 print:bg-white print:p-0 print:shadow-none">

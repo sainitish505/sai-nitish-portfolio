@@ -51,7 +51,7 @@ export type Project = {
 };
 
 export const profile = {
-  name: "Sai Nitish",
+  name: "Sai Nitish Bimari",
   title: "AI Product Engineer",
   linkedin: "https://www.linkedin.com/in/sai-nitish",
   email: "bimarisainitish@gmail.com",

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { createPageMetadata, defaultDescription, siteName, siteUrl } from "@/lib/seo";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,9 +14,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Sai Nitish | AI Product Engineer",
-  description:
-    "Portfolio of Sai Nitish, an AI Product Engineer and MS Artificial Intelligence student building deployed AI products, full-stack systems, and product teams.",
+  ...createPageMetadata({
+    title: "Sai Nitish Bimari | AI Product Engineer",
+    description: defaultDescription,
+    path: "/",
+  }),
+  metadataBase: new URL(siteUrl),
+  applicationName: siteName,
+  authors: [{ name: "Sai Nitish Bimari", url: siteUrl }],
+  creator: "Sai Nitish Bimari",
+  publisher: "Sai Nitish Bimari",
+  category: "Portfolio",
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+  },
 };
 
 export default function RootLayout({

@@ -1,17 +1,29 @@
+import type { Metadata } from "next";
 import { ExternalLink, Mail, IdCard } from "lucide-react";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Shell } from "@/components/Shell";
+import { StructuredData } from "@/components/StructuredData";
 import { profile } from "@/data/portfolio";
+import { createPageMetadata, personJsonLd } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "Contact Sai Nitish Bimari | AI Product Engineer",
+  description:
+    "Contact Sai Nitish Bimari for AI product engineering, full-stack systems, operational platform work, technology leadership, and practical software roles.",
+  path: "/contact",
+  keywords: ["contact Sai Nitish Bimari", "hire AI Product Engineer", "full-stack engineer contact"],
+});
 
 export default function ContactPage() {
   return (
     <Shell>
+      <StructuredData data={personJsonLd()} />
       <section className="px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl">
           <SectionTitle
             eyebrow="Contact"
             title="Let's talk about AI products, engineering roles, or practical systems."
-            description="Final contact details can be swapped in when ready. For now, LinkedIn is the reliable public path."
+            description="Reach Sai Nitish Bimari through the official bimari.org portfolio for AI product engineering, full-stack systems, operational platforms, and technology leadership conversations."
           />
           <div className="rounded border border-[#f4f0e8]/10 bg-[#f4f0e8]/[0.055] p-6 shadow-2xl shadow-black/15 sm:p-8">
             <div className="space-y-4">

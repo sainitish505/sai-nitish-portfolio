@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowUpRight, CheckCircle2, Flame, Route, ShieldCheck } from "lucide-react";
@@ -7,28 +8,43 @@ import { OperationsVisual } from "@/components/OperationsVisual";
 import { PipelineVisual } from "@/components/PipelineVisual";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Shell } from "@/components/Shell";
+import { StructuredData } from "@/components/StructuredData";
 import { projects } from "@/data/portfolio";
+import { breadcrumbJsonLd, createPageMetadata, projectJsonLd } from "@/lib/seo";
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const project = projects.find((item) => item.slug === slug);
-  return {
-    title: project ? `${project.title} | Sai Nitish` : "Project | Sai Nitish",
+  return createPageMetadata({
+    title: project ? `${project.title} | Sai Nitish Bimari` : "Project | Sai Nitish Bimari",
     description: project?.summary,
-  };
+    path: `/projects/${slug}`,
+    keywords: project ? [project.title, project.category, project.role, ...project.stack, ...project.impact] : ["Sai Nitish Bimari project"],
+  });
 }
 
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const project = projects.find((item) => item.slug === slug);
   if (!project) notFound();
+  const projectSchema = projectJsonLd(project.slug);
 
   return (
     <Shell>
+      <StructuredData
+        data={[
+          ...(projectSchema ? [projectSchema] : []),
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Projects", path: "/projects" },
+            { name: project.title, path: `/projects/${project.slug}` },
+          ]),
+        ]}
+      />
       <section className="relative px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
         <div className="absolute inset-x-0 top-12 -z-10 mx-auto h-80 max-w-5xl rounded-full bg-teal-300/10 blur-3xl" />
         <div className="mx-auto max-w-7xl">
