@@ -49,7 +49,7 @@ export function OperationsVisual() {
       </div>
       <div className="mt-5 grid gap-3 border-t border-[#f4f0e8]/10 pt-5 md:grid-cols-3">
         {[
-          ["Production usage", "Live internal system at distribution.bimari.org"],
+          ["Production usage", "Live internal system at app.bimari.org"],
           ["Business scale", "INR 3L+ sales tracked and 65,000+ inventory units managed"],
           ["Ownership depth", "Product, database, APIs, frontend, deployment, and maintenance"],
         ].map(([label, value]) => (

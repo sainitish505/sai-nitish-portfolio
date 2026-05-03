@@ -372,9 +372,9 @@ export const projects: Project[] = [
     role: "End-to-End Full-Stack Owner",
     period: "2025",
     status: "Live production system",
-    liveUrl: "https://distribution.bimari.org",
+    liveUrl: "https://app.bimari.org",
     links: [
-      { label: "Live system", url: "https://distribution.bimari.org" },
+      { label: "Live system", url: "https://app.bimari.org" },
       { label: "Frontend repo", url: "https://github.com/sainitish505/bimari-distribution-fe" },
       { label: "Backend repo", url: "https://github.com/sainitish505/bimari-distribution-be" },
     ],
@@ -429,7 +429,7 @@ export const projects: Project[] = [
       {
         title: "Deployment and stewardship",
         items: [
-          "Deployed the system live at distribution.bimari.org and continue to maintain it.",
+          "Deployed the system live at app.bimari.org and continue to maintain it.",
           "Handled production setup, database setup, security-sensitive authentication flows, and ongoing improvements.",
           "Use live operational feedback to refine workflows, reports, and data quality.",
         ],
@@ -980,10 +980,10 @@ export const certifications = [
 ];
 
 export const olderProjects = [
-  "Local Fox",
-  "Hey Go - Goods & Passenger Transport",
-  "Mother Theressa Engineering College Website",
-  "Focus King Photography",
+  { title: "Local Fox" },
+  { title: "Hey Go - Goods & Passenger Transport", url: "https://heygo.bimari.org" },
+  { title: "Mother Theressa Engineering College Website" },
+  { title: "Focus King Photography" },
 ];
 
 export const pipeline = [

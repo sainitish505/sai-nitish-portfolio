@@ -44,13 +44,34 @@ export function ProjectCategoryGallery() {
                 ))}
                 {category.title === "Early Work" &&
                   olderProjects.map((project) => (
-                    <div key={project} className="rounded border border-[#f4f0e8]/10 bg-black/20 p-4">
-                      <p className="text-xs font-semibold uppercase tracking-[0.14em] text-teal-200">Earlier shipped range</p>
-                      <h4 className="mt-2 text-lg font-semibold text-[#fffaf0]">{project}</h4>
-                      <p className="mt-3 text-sm leading-6 text-[#b8b2a7]">
-                        Part of the early work that built my speed, domain adaptability, and confidence working with real clients and product constraints.
-                      </p>
-                    </div>
+                    project.url ? (
+                      <a
+                        key={project.title}
+                        href={project.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group rounded border border-[#f4f0e8]/10 bg-black/20 p-4 transition hover:-translate-y-1 hover:border-teal-200/40"
+                      >
+                        <div className="flex items-start justify-between gap-4">
+                          <div>
+                            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-teal-200">Earlier shipped range</p>
+                            <h4 className="mt-2 text-lg font-semibold text-[#fffaf0]">{project.title}</h4>
+                          </div>
+                          <ArrowUpRight className="h-4 w-4 text-[#8f8676] transition group-hover:text-amber-200" />
+                        </div>
+                        <p className="mt-3 text-sm leading-6 text-[#b8b2a7]">
+                          Part of the early work that built my speed, domain adaptability, and confidence working with real clients and product constraints.
+                        </p>
+                      </a>
+                    ) : (
+                      <div key={project.title} className="rounded border border-[#f4f0e8]/10 bg-black/20 p-4">
+                        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-teal-200">Earlier shipped range</p>
+                        <h4 className="mt-2 text-lg font-semibold text-[#fffaf0]">{project.title}</h4>
+                        <p className="mt-3 text-sm leading-6 text-[#b8b2a7]">
+                          Part of the early work that built my speed, domain adaptability, and confidence working with real clients and product constraints.
+                        </p>
+                      </div>
+                    )
                   ))}
                 {category.title === "Teaching & Mentorship" && (
                   <a
